@@ -6,7 +6,7 @@
 /*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:13:25 by apintus           #+#    #+#             */
-/*   Updated: 2024/10/14 12:20:53 by apintus          ###   ########.fr       */
+/*   Updated: 2024/10/15 14:38:56 by apintus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static int	parsing(t_data *data, int ac, char **av)
 	if (ac != 2 || check_ext_cub(av[1]))
 		return (free(data),
 			ft_putstr_fd("Error\nInvalid argument or file extension\n", 2), 1);
+	init_data(data);
 	if (check_file(data, av[1]))
 		return (free(data), 1);
-	init_data(data);
 	copy_file(data, av[1]);
 	get_info(data->info.file, data);
 	check_map(data);
